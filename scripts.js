@@ -42,6 +42,7 @@ function display(e) {
     let displayText = this.innerText;
     dispText.innerText += displayText;
     displayValue = parseInt(dispText.innerText);
+   //console.log("Display: " + displayValue);
 }
 
 
@@ -57,8 +58,8 @@ function storeForCalc(e) {
     operator = this.innerText; //Grabs current operator for calculation 
 
     //Restore period button functionality since it is deactivated upon use
-    periodBtn.addEventListener('click', display);  
-    periodBtn.addEventListener('click', deactivatePeriod);
+    //periodBtn.addEventListener('click', display);  
+    //periodBtn.addEventListener('click', deactivatePeriod);
 
     //Give equal button functionality, so it can only be used AFTER operator is selected to avoid error
     equalBtn.addEventListener('click', clearDisplay);
@@ -75,10 +76,10 @@ function calculate(e) {
     displayValue = parseInt(dispText.innerText);    //Set new DisplayValue for further chain calculations
 
     //Restore period button functionality in case it was pressed and therefore deactivated (see below)
-    periodBtn.addEventListener('click', display);
-    periodBtn.addEventListener('click', deactivatePeriod);
+    //periodBtn.addEventListener('click', display);
+    //periodBtn.addEventListener('click', deactivatePeriod);
 
-    //Removes equal button functionality until operator is pressed again 
+    //Removes equal button functionality until operator is pressed again
     equalBtn.removeEventListener('click', clearDisplay);
     equalBtn.removeEventListener('click', calculate);
     
@@ -99,11 +100,11 @@ function deleted(e) {
 }
 
 //Whenever period is pressed, deactivate it until reactivated (After either hitting = or an operator)
-function deactivatePeriod(e) {
+/*function deactivatePeriod(e) {
     periodBtn.removeEventListener('click', display);
     periodBtn.removeEventListener('click', deactivatePeriod);
 }
-
+*/
 
 //numbers for calculation
 let number1 = null;
@@ -130,9 +131,9 @@ numberBtns.forEach(element => element.addEventListener('click', display));
 
 
 //Retrieve period button, set up two event listeners
-let periodBtn = document.querySelector('#period');
-periodBtn.addEventListener('click', display);
-periodBtn.addEventListener('click', deactivatePeriod);
+//let periodBtn = document.querySelector('#period');
+//periodBtn.addEventListener('click', display);
+//periodBtn.addEventListener('click', deactivatePeriod);
 
 
 //Retrieve clear button, set up event listener
